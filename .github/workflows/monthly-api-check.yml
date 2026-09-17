@@ -1,0 +1,55 @@
+name: Monthly Ring API check
+
+on:
+  schedule:
+    - cron: '0 13 1 * *' # 08:00 America/Chicago on the 1st of each month
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm install
+
+      - name: Live scrape against Ring's real API (no upload, BUCKET unset)
+        id: scrape
+        run: node scrape.js
+        continue-on-error: true
+
+      - name: Offline fixture tests
+        id: test
+        run: npm test
+        continue-on-error: true
+
+      - name: Open an issue if something broke
+        if: steps.scrape.outcome == 'failure' || steps.test.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              `@${context.repo.owner} the monthly automated check found a problem.`,
+              '',
+              `- Live scrape (\`node scrape.js\`): **${{ steps.scrape.outcome }}**`,
+              `- Offline tests (\`npm test\`): **${{ steps.test.outcome }}**`,
+              '',
+              `[Workflow run logs](${runUrl})`,
+              '',
+              'Likely cause: Ring changed their API response shape or endpoint.',
+              'Start with `normalize.js` and the Troubleshooting section of `DEPLOY_GCP.md`.',
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Ring API check failed — ${new Date().toISOString().slice(0, 10)}`,
+              body,
+            });
