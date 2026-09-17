@@ -1,4 +1,4 @@
-# Ring Boxing Calendar
+# Boxing Calendar
 
 A subscribable ("streaming") iCal feed of upcoming boxing events, built from
 **The Ring Magazine**'s own schedule API. A weekly cron job re-fetches the
