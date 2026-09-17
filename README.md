@@ -37,6 +37,7 @@ the whole thing very cheap to run.
 | `test.js` + `fixtures/` | Offline tests against Ring's real API shape. |
 | `Dockerfile` | Tiny `node:20-slim` image for the Cloud Run Job. |
 | `DEPLOY_GCP.md` | Step-by-step GCP deploy. |
+| `DEPLOY_AWS_FRONTEND.md` + `aws-frontend/` | Optional: front the feed with your own domain instead of a raw GCS URL. |
 
 ## Event content
 
@@ -61,7 +62,9 @@ right before deploying.
 
 ## Deploy
 
-See `DEPLOY_GCP.md`.
+See `DEPLOY_GCP.md`. Optionally, `DEPLOY_AWS_FRONTEND.md` puts your own
+domain in front of the feed (e.g. `boxing.yourdomain.com/calendar`) instead
+of a raw `storage.googleapis.com` URL.
 
 ## The "even lighter" note
 
