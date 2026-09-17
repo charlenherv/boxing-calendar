@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "id": "4KcUnNvGRpDnb0ONBP3SkH",
+      "eventSlogan": "Pitbull vs. Bravo",
+      "eventStart": "2026-09-19T21:00:00.000Z",
+      "eventEnd": "2026-09-20T04:00:00.000Z",
+      "fights": [
+        {
+          "fighterA": { "name": "Isaac Cruz" },
+          "fighterB": { "name": "Nestor Bravo" },
+          "isMainEvent": true,
+          "startTime": "2026-09-20T01:30:00.000Z",
+          "weightClass": "Junior welterweight"
+        },
+        {
+          "fighterA": { "name": "Jesus Ramos" },
+          "fighterB": { "name": "Meiirim Nursultanov" },
+          "isMainEvent": false,
+          "startTime": "2026-09-20T00:30:00.000Z"
+        }
+      ],
+      "eventLocation": { "venueName": "Pechanga Arena", "country": "US", "city": "San Diego" }
+    },
+    {
+      "id": "7z6ZpuEOr7bgleJatbNRF2",
+      "eventSlogan": "Iglesias vs. Zaren",
+      "eventStart": "2026-10-08T22:00:00.000Z",
+      "eventEnd": "2026-10-08T04:00:00.000Z",
+      "fights": [
+        {
+          "fighterA": { "name": "Osleys Iglesias" },
+          "fighterB": { "name": "Oliver Zaren" },
+          "isMainEvent": true,
+          "startTime": "2026-10-09T01:00:00.000Z"
+        }
+      ],
+      "eventLocation": { "venueName": "Capitole de Quebec", "country": "CA", "city": "Quebec" }
+    },
+    {
+      "id": "noMainEventFlagCase01",
+      "eventSlogan": "Fallback Slogan Event",
+      "eventStart": "2026-11-01T18:00:00.000Z",
+      "eventEnd": "",
+      "fights": [
+        {
+          "fighterA": { "name": "First Fighter" },
+          "fighterB": { "name": "Second Fighter" },
+          "isMainEvent": false,
+          "startTime": "2026-11-01T20:00:00.000Z"
+        }
+      ],
+      "eventLocation": { "venueName": "Somewhere", "country": "GB", "city": "London" }
+    },
+    {
+      "id": "noFightsCase02",
+      "eventSlogan": "Slogan Only Event",
+      "eventStart": "2026-12-05T19:00:00.000Z",
+      "fights": []
+    }
+  ],
+  "pagination": { "total": 4, "nextCursor": null, "hasNextPage": false, "limit": 20 }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "ring-boxing-calendar",
+  "version": "1.0.0",
+  "description": "Fetch The Ring Magazine's boxing schedule API and publish a subscribable .ics calendar. Runs weekly on GCP (Cloud Scheduler -> Cloud Run Job -> Cloud Storage).",
+  "main": "scrape.js",
+  "scripts": {
+    "start": "node scrape.js",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^7.14.0"
+  },
+  "license": "MIT"
+}

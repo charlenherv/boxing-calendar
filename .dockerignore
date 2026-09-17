@@ -1,0 +1,7 @@
+node_modules
+npm-debug.log
+boxing.ics
+.env
+.git
+.gitignore
+*.md

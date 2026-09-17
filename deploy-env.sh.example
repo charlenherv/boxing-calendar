@@ -1,0 +1,13 @@
+# Copy to deploy-env.sh (gitignored) and fill in your real project ID:
+#   cp deploy-env.sh.example deploy-env.sh
+#   source deploy-env.sh
+#
+# Then follow DEPLOY_GCP.md — these are the same variables it references.
+
+export PROJECT_ID="your-project-id"
+export REGION="us-central1"
+export BUCKET="ringcal-$PROJECT_ID"
+export JOB="ring-boxing-calendar"
+export OBJECT="boxing.ics"
+
+gcloud config set project "$PROJECT_ID"
